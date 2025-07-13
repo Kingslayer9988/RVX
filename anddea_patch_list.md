@@ -1,34 +1,8 @@
-#### ⚠️ [Original Repo](https://github.com/j-hc/revanced-magisk-module)
+## 🧩 ReVanced Patches
 
-# RVX-App
-![Artifacts](./revanced-magisk/banner.png)
-[![Telegram](https://img.shields.io/badge/Follow-Telegram-blue.svg?logo=telegram)](https://t.me/cvnertnc)
-[![latest CI release](https://img.shields.io/github/v/release/cvnertnc/rvx-app?label=Release&logo=github)](https://github.com/cvnertnc/rvx-app/releases/latest)
-[![CI](https://github.com/cvnertnc/rvx-app/actions/workflows/ci.yml/badge.svg?event=schedule)](https://github.com/cvnertnc/rvx-app/actions/workflows/ci.yml)
+ReVanced Extended Patches.
 
-Extensive RVX-App Builder
-
-Get the [latest CI release](https://github.com/cvnertnc/rvx-app/releases).
-
-Use [**zygisk-detach**](https://github.com/j-hc/zygisk-detach) to detach YouTube and YT Music from Play Store if you are using magisk modules. 
-
-<details><summary><big>Features</big></summary>
-<ul>
- <li>Support all present and future ReVanced and <a href="https://github.com/inotia00/revanced-patches">ReVanced Extended</a> apps</li>
- <li> Can build Magisk modules and non-root APKs</li>
- <li> Updated daily with the latest versions of apps and patches</li>
- <li> Optimize APKs and modules for size</li>
- <li> Modules</li>
-    <ul>
-     <li> recompile invalidated odex for faster usage</li>
-     <li> receive updates from Magisk app</li>
-     <li> do not break safetynet or trigger root detections</li>
-     <li> handle installation of the correct version of the stock app and all that</li>
-     <li> support Magisk and KernelSU</li>
-    </ul>
-</ul>
-Note that the <a href="../../actions/workflows/ci.yml">CI workflow</a> is scheduled to build the modules and APKs everyday using GitHub Actions if there is a change in ReVanced patches. You may want to disable it.
-</details>
+## Documentation
 
 Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources on patching, customization, and debugging.
 
@@ -157,12 +131,94 @@ Check the [wiki](https://github.com/anddea/revanced-patches/wiki) for resources 
 | `Watch history` | - | Adds an option to change the domain of the watch history or check its status. | 6.20.51 ~ 8.12.53 |
 </details>
 
-To include/exclude patches or patch other apps
-[**See the list of patches**](https://j-hc.github.io/rvmm-config-gen/)
+### [📦 `com.reddit.frontpage`](https://play.google.com/store/apps/details?id=com.reddit.frontpage)
+<details>
 
-Also see here [`CONFIG.md`](./CONFIG.md).
+| 💊 Patch | ⚙️ Patch-Options | 📜 Description | 🏹 Target Version |
+|:--------:|:---------------:|:--------------:|:-----------------:|
+| `Change package name` | `packageNameReddit` | Changes the package name for Reddit to the name specified in patch options. | 2024.17.0 ~ 2025.12.1 |
+| `Custom branding name for Reddit` | `appName` | Changes the Reddit app name to the name specified in patch options. | 2024.17.0 ~ 2025.12.1 |
+| `Disable screenshot popup` | - | Adds an option to disable the popup that appears when taking a screenshot. | 2024.17.0 ~ 2025.12.1 |
+| `Hide Recently Visited shelf` | - | Adds an option to hide the Recently Visited shelf in the sidebar. | 2024.17.0 ~ 2025.12.1 |
+| `Hide ads` | - | Adds options to hide ads. | 2024.17.0 ~ 2025.12.1 |
+| `Hide navigation buttons` | - | Adds options to hide buttons in the navigation bar. | 2024.17.0 ~ 2025.12.1 |
+| `Hide recommended communities shelf` | - | Adds an option to hide the recommended communities shelves in subreddits. | 2024.17.0 ~ 2025.12.1 |
+| `Open links directly` | - | Adds an option to skip over redirection URLs in external links. | 2024.17.0 ~ 2025.12.1 |
+| `Open links externally` | - | Adds an option to always open links in your browser instead of in the in-app-browser. | 2024.17.0 ~ 2025.12.1 |
+| `Premium icon` | - | Unlocks premium app icons. | 2024.17.0 ~ 2025.12.1 |
+| `Remove subreddit dialog` | - | Adds options to remove the NSFW community warning and notifications suggestion dialogs by dismissing them automatically. | 2024.17.0 ~ 2025.12.1 |
+| `Sanitize sharing links` | - | Adds an option to sanitize sharing links by removing tracking query parameters. | 2024.17.0 ~ 2025.12.1 |
+| `Settings for Reddit` | `rvxSettingsLabel` | Applies mandatory patches to implement ReVanced Extended settings into the application. | 2024.17.0 ~ 2025.12.1 |
+</details>
 
-## Thanks
-[j-hc](https://github.com/j-hc)  
-[inotia00](https://github.com/inotia00)  
-[anddea](https://github.com/anddea)  
+### [📦 `com.spotify.music`](https://play.google.com/store/apps/details?id=com.spotify.music)
+<details>
+
+| 💊 Patch | ⚙️ Patch-Options | 📜 Description | 🏹 Target Version |
+|:--------:|:---------------:|:--------------:|:-----------------:|
+| `Change lyrics provider` | Changes the lyrics provider to a custom one. | ALL |
+| `Custom branding name for Spotify` | Changes the Spotify app name to the name specified in patch options. | ALL |
+| `Custom theme` | Applies a custom theme (defaults to amoled black) | ALL |
+| `Fix Facebook login` | Fix logging in with Facebook when the app is patched by always opening the login in a web browser window. | ALL |
+| `Fix third party launchers widgets` | Fixes Spotify widgets not working in third party launchers, like Nova Launcher. | ALL |
+| `Hide Create button` | Hides the "Create" button in the navigation bar. | ALL |
+| `Lyrics search` | Displays a "Search Lyrics" panel in the Main Activity that searches for lyrics on Google, and song meanings on Songtell. The activity is set to SpotifyMainActivity, so the "Search Lyrics" panel won't be shown in NowPlayingActivity (Player view) or possibly other activities. | ALL |
+| `Sanitize sharing links` | Removes the tracking query parameters from links before they are shared. | ALL |
+| `Spoof package info` | Spoofs the package info of the app to fix various functions of the app. | ALL |
+| `Unlock Premium` | Unlocks Spotify Premium features. Server-sided features like downloading songs are still locked. | ALL |
+</details>
+
+
+
+## 📝 JSON Format
+
+This section explains the JSON format for the [patches.json](patches.json) file.
+
+Example:
+
+```json
+[
+  {
+    "name": "Alternative thumbnails",
+    "description": "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
+    "use":true,
+    "compatiblePackages": {
+      "com.google.android.youtube": [
+        "19.43.41",
+        "19.44.39",
+        "19.47.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Bitrate default value",
+    "description": "Sets the audio quality to 'Always High' when you first install the app.",
+    "use":true,
+    "compatiblePackages": {
+      "com.google.android.apps.youtube.music": [
+        "6.20.51",
+        "6.51.53",
+        "7.16.53",
+        "7.25.53",
+        "8.05.51",
+        "8.12.53"
+      ]
+    },
+    "options": []
+  },
+  {
+    "name": "Hide ads",
+    "description": "Adds options to hide ads.",
+    "use":true,
+    "compatiblePackages": {
+      "com.reddit.frontpage": [
+        "2024.17.0",
+        "2025.05.1",
+        "2025.12.1"
+      ]
+    },
+    "options": []
+  }
+]
+```
