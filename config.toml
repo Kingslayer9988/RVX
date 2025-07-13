@@ -18,10 +18,54 @@ cli-version = "dev"
 [YouTube]
 enabled = true
 build-mode = "both"
-included-patches = "'Custom header for YouTube' 'Swipe controls'"
-excluded-patches = "'Alternative thumbnails' 'Custom Shorts action buttons' 'Disable splash animation' 'Enable gradient loading screen' 'Force player buttons background' 'Hide action buttons' 'Hide feed components' 'Hide feed flyout menu' 'Hook download actions' 'Shorts components' 'Theme'"
+# INCLUDE ALL patches EXCEPT GmsCore support
+excluded-patches = "'GmsCore support'"
 version = "auto"
-patcher-args = "-e 'Custom branding icon for YouTube' -OappIcon='revancify_red'"
+# Custom Shorts action buttons => cairo
+# Custom branding icon for YouTube => vanced_black  
+# Custom branding name for YouTube => "Youtube RVX"
+# Custom header for YouTube => custom_branding_icon
+# Hide shortcuts => ALL FALSE (explore: false, subscriptions: false, search: false, shorts: false)
+# Overlay buttons => bold 2.5dip true true
+# Settings for YouTube => @string/parent_tools_key, rvxSettingsLabel: RVX, settingsSummaries: true
+# SponsorBlock => true, right
+# Visual preferences icons => custom_branding_icon
+# Translations => English(US) only
+# Hide feed flyout menu => ALL Custom Filter Options
+patcher-args = "-e 'Custom Shorts action buttons' \
+    -OiconType='cairo' \
+    -e 'Custom branding icon for YouTube' \
+    -OappIcon='vanced_black' \
+    -OchangeSplashIcon='true' \
+    -OrestoreOldSplashAnimation='true' \
+    -e 'Custom branding name for YouTube' \
+    -OappName='Youtube RVX' \
+    -e 'Custom header for YouTube' \
+    -OcustomHeader='custom_branding_icon' \
+    -e 'Hide shortcuts' \
+    -Oexplore='false' \
+    -Osubscriptions='false' \
+    -Osearch='false' \
+    -Oshorts='false' \
+    -e 'Overlay buttons' \
+    -OiconType='bold' \
+    -ObottomMargin='2.5dip' \
+    -OwiderButtonsSpace='true' \
+    -OchangeTopButtons='true' \
+    -e 'Settings for YouTube' \
+    -OinsertPosition='@string/parent_tools_key' \
+    -OrvxSettingsLabel='RVX' \
+    -OsettingsSummaries='true' \
+    -e 'SponsorBlock' \
+    -OoutlineIcon='true' \
+    -ONewSegmentAlignment='right' \
+    -e 'Visual preferences icons for YouTube' \
+    -OsettingsMenuIcon='custom_branding_icon' \
+    -OapplyToAll='true' \
+    -e 'Translations for YouTube' \
+    -OselectedStringResources='en' \
+    -e 'Hide feed flyout menu' \
+    -OcustomFilter='status_dot,carousel_header,channel_action_button,channel_description_preview,channel_header_links,compact_channel_bar,compact_channel_bar_header,expandable_list_inner,expandable_product_grid,grid_channel_shelf,grid_video_wrapper,hero_carousel,horizontal_gaming_shelf,horizontal_tile_shelf,horizontal_video_shelf,image_attachment,inline_expander,library_recent_shelf,more_drawer,multi_image_attachment,offer_box,player_overlay_video_heading,post_base,post_base_wrapper,post_attachment_container,post_comment_button,post_like_dislike,post_like_count,post_header,post_metadata,post_author,post_time_text,post_content,product_offers,quick_actions,related_video,shelf_header,shopping_flagging,shorts_shelf,snappy_horizontal_shelf,styled_product_carousel,subscribe_button'"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 
@@ -29,10 +73,32 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 enabled = true
 build-mode = "both"
 arch = "arm64-v8a"
-included-patches = "'Custom header for YouTube Music' 'Disable music video in album' 'Hide overlay filter' 'Hide player overlay filter'"
-excluded-patches = "'Dark theme'"
+# INCLUDE ALL patches EXCEPT GmsCore support  
+excluded-patches = "'GmsCore support'"
 version = "auto"
-patcher-args = "-e 'Custom branding icon for YouTube Music' -OappIcon='revancify_red'"
+# Custom branding icon for YouTube Music => same as YouTube (vanced_black)
+# Custom branding name for YouTube Music => "YT-Music RVX" for both notification and launcher
+# Custom header for YouTube Music => custom_branding_icon
+# Settings for YouTube Music => rvxSettingsLabel: RVX, settingsSummaries: true
+# Visual preferences icons => custom_branding_icon
+# Translations => English(US) only
+patcher-args = "-e 'Custom branding icon for YouTube Music' \
+    -OappIcon='vanced_black' \
+    -OchangeSplashIcon='true' \
+    -OrestoreOldSplashIcon='true' \
+    -e 'Custom branding name for YouTube Music' \
+    -OappNameNotification='YT-Music RVX' \
+    -OappNameLauncher='YT-Music RVX' \
+    -e 'Custom header for YouTube Music' \
+    -OcustomHeader='custom_branding_icon' \
+    -e 'Settings for YouTube Music' \
+    -OrvxSettingsLabel='RVX' \
+    -OsettingsSummaries='true' \
+    -e 'Visual preferences icons for YouTube Music' \
+    -OsettingsMenuIcon='custom_branding_icon' \
+    -OapplyToAll='true' \
+    -e 'Translations for YouTube Music' \
+    -OselectedStringResources='en'"
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
 uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 
